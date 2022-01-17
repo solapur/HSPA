@@ -25,7 +25,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/data"
+              "src/data",
+              "src/services"
             ],
             "styles": [
               "node_modules/font-awesome/css/font-awesome.css",
