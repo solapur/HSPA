@@ -12,7 +12,9 @@ import {Routes, RouterModule} from '@angular/router';
 import { PropertyRentComponent } from './property/property-rent/property-rent.component';
 import { PropertyDetailsComponent } from './property/property-details/property-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
@@ -20,6 +22,8 @@ const appRoutes: Routes = [
   {path:'add-property', component:AddPropertyComponent},
   {path:'rent-property', component:PropertyRentComponent},
   {path:'property-detail/:id', component:PropertyDetailsComponent},
+  {path:'user-login', component:UserLoginComponent},
+  {path:'user-register', component:UserRegisterComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
 
@@ -32,12 +36,15 @@ const appRoutes: Routes = [
     AddPropertyComponent,
     PropertyRentComponent,
     PropertyDetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserLoginComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
 
   ],
