@@ -12,6 +12,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { PropertyRentComponent } from './property/property-rent/property-rent.component';
 import { PropertyDetailsComponent } from './property/property-details/property-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
@@ -36,7 +37,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
+
   ],
   providers: [
     DataServiceService
