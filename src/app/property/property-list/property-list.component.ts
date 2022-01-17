@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data-service.service';
 @Component({
   selector: 'app-property-list',
@@ -8,17 +9,22 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 })
 
 export class PropertyListComponent implements OnInit {
-
+  SellRent = 1;
   public properties: any;
 
-  constructor(private DataService: DataServiceService) {
+  constructor(private route:ActivatedRoute,  private DataService: DataServiceService) {
   }
 
   ngOnInit(): void {
-    this.DataService.getAllProperties().subscribe(
+    if(this.route.snapshot.url.toString()){
+      this.SellRent = 2;
+    }
+
+    this.DataService.getPropertiesBasedOnSellRent(this.SellRent).subscribe(
     data=>
         {   this.properties = data;
             console.log(data);
+            console.log(this.route.snapshot.url.toString());
         }, error=>{
           console.log(error);
         })

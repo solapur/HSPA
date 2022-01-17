@@ -1,9 +1,9 @@
 <div class="card">
 <div class="card-img-wapper">
-<img class="card-img-top" src = "assets/images/hoome.jpg"/>
+<img class="card-img-top" src='assets/images/{{property.Image}}'/>
 <ul class="list-inline text-center member-icons animate">
   <li class="list-inline-item">
-    <button class="btn btn-primary">  <i class="far fa-edit"></i></button>
+    <button class="btn btn-primary" routerLink="/property-detail/{{property.Id}}">  <i class="far fa-edit"></i></button>
   </li>
   <li class="list-inline-item">
     <button class="btn btn-primary"> <i class="fas fa-eye"></i> </button>
@@ -16,6 +16,9 @@
 <h1> {{property.Type }} </h1>
 <h1> {{property.Name }} </h1>
 <h1> {{property.Price}} </h1>
+<h1> {{property.SellRent}} </h1>
+
+
 </div>
 </div>
 

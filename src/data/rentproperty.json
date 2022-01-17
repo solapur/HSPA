@@ -1,0 +1,34 @@
+[
+  {
+  "Id": 1,
+  "Type": "House",
+  "SellRent": 2,
+  "Name": "Birla House",
+  "Price": 180000,
+  "Image": "hoome.jpg"
+},
+{
+    "Id": 4,
+    "Type": "House",
+    "SellRent":2,
+    "Name": "Dev House",
+    "Price": 150000,
+    "Image":"House.jpg"
+},
+{
+    "Id": 6,
+    "Type": "House",
+    "SellRent": 2,
+    "Name": "Mina House",
+    "Price": 160000,
+    "Image":"Homes.jfif"
+},
+{
+    "Id": 8,
+    "Type": "House",
+    "SellRent": 2,
+    "Name": "Shwata House",
+    "Price": 140000,
+    "Image": "home.jpg"
+}
+]
