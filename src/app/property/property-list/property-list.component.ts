@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataServiceService } from 'src/app/services/data-service.service';
+import { DataServiceService } from 'src/app/services/data-service/data-service.service';
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
