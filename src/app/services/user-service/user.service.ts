@@ -9,18 +9,19 @@ export class UserService {
 
 saveUser(user: any)
 {
-  let currentUsers;
+  let currentUsers = [];
+  let  existingUsers = [];
   if(localStorage.getItem('Users'))
   {
-   let existingUsers = JSON.parse(localStorage.getItem('Users')!);
-    currentUsers = [user,  ...existingUsers];
+    existingUsers = JSON.parse(localStorage.getItem('Users')!);
+    currentUsers.push(user);
+    currentUsers.push(existingUsers);
   }
   else
   {
     currentUsers = [user];
   }
   localStorage.setItem('Users', JSON.stringify(currentUsers));
-
 }
 
 }

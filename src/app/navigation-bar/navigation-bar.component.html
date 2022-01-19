@@ -15,15 +15,25 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="Active" routerLink="/add-property">List Property</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!loggedIn()" class="nav-item">
           <a class="nav-link" routerLinkActive="Active" routerLink="/user-login">Login</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!loggedIn()" class="nav-item">
           <a class="nav-link" routerLinkActive="Active" routerLink="/user-register">Register</a>
         </li>
       </ul>
 
+        <div *ngIf="loggedIn()" class="btn-group" dropdown>
+            <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+             a00ria-controls="dropdown-animated">
+             Welcome {{loggedUserName }} <span class="caret"></span>
+             </button>
+            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
+              <li role="menuitem"> <a class="dropdown-item" (click) ="logout()">  <i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
 
     </div>
+
   </div>
 </nav>
