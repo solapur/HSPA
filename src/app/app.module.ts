@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserService } from './user-service/user.service';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
 
   ],
   providers: [
-    DataServiceService
+    DataServiceService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
