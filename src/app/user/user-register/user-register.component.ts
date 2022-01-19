@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup,AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user-service/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 
 export class UserRegisterComponent implements OnInit {
   registrationForm!: FormGroup;
-  user: any = {}
+  user!: User;
   isFormSubmitted: boolean = false;
   constructor(private fbuilder: FormBuilder, private userservice: UserService) {
 
@@ -55,6 +56,14 @@ export class UserRegisterComponent implements OnInit {
     return fgroup.get('password')!.value === fgroup.get('confirmPassword')!.value ? null: { noPasswordMatched: true};
   }
 
+  getUser(): User {
+    return this.user =  {
+     userName: this.userName.value,
+     email: this.email.value,
+     password: this.password.value,
+     mobile: this.mobile.value
+    }
+  }
   get userName(){
      return this.registrationForm.get('userName') as FormControl;
   }
