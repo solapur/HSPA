@@ -20,6 +20,7 @@ import { AlertyfyService } from './services/alertify-service/alertyfy.service';
 import { AuthService } from './services/auth/auth.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabsModule.forRoot()
 
   ],
   providers: [
