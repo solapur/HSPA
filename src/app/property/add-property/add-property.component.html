@@ -1,36 +1,66 @@
+
+<div class="row">
+<div class="col-8">
 <div class="card">
  <div class="card-header">
-   List your property
+  <h3> List your property </h3>
   </div>
   <div class="card-body">
 <form (ngSubmit)="OnSubmit()" #Form= "ngForm">
   <div>
     <tabset #formTabs>
+
       <tab heading="Basic Information">
         <div class="form-group col-12">
-          <label for= "name">Name</label>
+          <p> I want to </p>
+          <div class="btn-group" btnRadioGroup>
+              <label class="btn btn-outline-primary" btnRadio = 1 role = "button" name="SellRent"> Sell </label>
+              <label class="btn btn-outline-primary" btnRadio = 2 role = "button" name="SellRent"> Rent </label>
+          </div>
+        </div>
+        <div class="form-group col-12">
+          <p> BHK </p>
+          <div class="btn-group" btnRadioGroup>
+              <label
+              *ngFor="let bhk of [1,2,3,4]"
+              class="btn btn-outline-primary"
+              btnRadio = bhk role = "button" name="BHK"> {{bhk}} </label>
+
+
+          </div>
+       </div>
+       <div class="form-group col-12">
+        <p>Property Type  </p>
+        <div class="btn-group" btnRadioGroup name="propertyType" [(ngModel)]="propertyView.Type">
+            <label
+            *ngFor="let property of propertyTypes"
+            class="btn btn-outline-primary"
+            btnRadio = {{property}}  role = "button"> {{property}} </label>
+        </div>
+     </div>
+     <div class="form-group col-12">
+      <p>Furnishing Type  </p>
+      <div class="btn-group" btnRadioGroup>
+          <label
+          *ngFor="let furnish of furnishTypes"
+          class="btn btn-outline-primary"
+          btnRadio = furnish role = "button" name="furnish"> {{furnish}} </label>
+      </div>
+   </div>
+   <div class="form-group col-12">
+          <label for= "name">In Building/Society/Project</label>
           <input type="text" id="name" #propName="ngModel"
-                  name="PropertyName" minlength="2" maxlength="20" ngModel class="form-control" required>
+                  name="PropertyName" minlength="2" maxlength="20" ngModel class="form-control" [(ngModel)]="propertyView.Name" required>
           <div *ngIf="!propName.valid && propName.touched" class="error-block">
-           <span *ngIf="propName.errors && propName.errors['required']"> Please enter username </span>
-           <span *ngIf="propName.errors && propName.errors['minlength']"> Please enter valid username </span>
+           <span *ngIf="propName.errors && propName.errors['required']">Please enter username </span>
+           <span *ngIf="propName.errors && propName.errors['minlength']">Please enter valid username </span>
           </div>
        </div>
+
        <div class="form-group col-12">
-         <label for= "type"> Type </label>
-         <input type = "text" if="type" #propType="ngModel" minlength="2" name="PropertyType" ngModel class="form-control">
-         <div *ngIf="!propType.valid && propType.touched" class="error-block">
-           <span *ngIf="propType.errors && propType.errors['minlength']"> Please enter mininum 2 character </span>
-          </div>
-       </div>
-       <div class="form-group col-12">
-         <label for ="price"> Price </label>
-         <input type="text" minlength="2" #propPrice="ngModel" maxlength="5" id ="price" name="PropertyPrice" ngModel class="form-control">
-         <div *ngIf="!propPrice.valid && propPrice.touched" class="error-block">
-         <span *ngIf="propPrice.errors && propPrice.errors['minlength']"> Please enter mininum 2 character </span>
-         <span *ngIf="propPrice.errors && propPrice.errors['maxlength']"> Please enter maximum 5 character </span>
-         </div>
-       </div>
+         <label for ="city"> City </label>
+         <input type="text"  class="form-control">
+        </div>
        <div class="form-group col-12" >
        <button type="button" class="btn btn-primary" (click)="selectTab(1)" >Next</button>
        </div>
@@ -38,7 +68,7 @@
       <tab heading="Pricing and Area">
         <div class="form-group col-12">
           <label>Price (in USD)</label>
-          <input type="text" class="form-control">
+          <input type="number" class="form-control" name="PropertyPrice" [(ngModel)]="propertyView.Price">
         </div>
 
         <div class="form-group col-12">
@@ -95,16 +125,22 @@
       <tab heading="Other Details">
         <div class="form-group col-12">
           <label>Ready to Move</label><br/>
-          <input type="radio" id='Yes' value='1' name="RTM">
-          <label class="m-2">Yes</label>
+            <div class="btn-group" btnRadioGroup>
+                <label
+                *ngFor="let side of sideTypes"
+                class="btn btn-outline-primary"
+                btnRadio = side role = "radio" name="side"> {{side}} </label>
+            </div>
 
-          <input type="radio" id="No" value='2' name="RTM">
-          <label class="m-2">No</label>
         </div>
 
         <div class="form-group col-3">
           <label>Possession/Avaialble From</label>
-          <input type="date" class="form-control">
+
+          <input type="text"
+          placeholder="Datepicker"
+          class="form-control"
+          bsDatepicker [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat:'YYYY-MM-DD'}">
         </div>
 
         <div class="form-group col-12">
@@ -113,8 +149,14 @@
         </div>
 
         <div class="form-group col-12">
+          <p>
           <label>Gated Community</label>
-          <input type="text" class="form-control">
+           </p>
+            <div class="btn-group" btnRadioGroup>
+                <label class="btn btn-outline-primary" btnRadio = 1 role = "button" name="SellRent"> Yes </label>
+                <label class="btn btn-outline-primary" btnRadio = 2 role = "button" name="SellRent"> No </label>
+            </div>
+
         </div>
 
         <div class="form-group col-12">
@@ -150,5 +192,17 @@
     </tabset>
   </div>
 </form>
+</div>
+</div>
+</div>
+<div class=col-4>
+  <div class="card">
+    <div class="card-header">
+     <h3> Your property review </h3>
+    </div>
+    <div class="card-body">
+      <app-property-card [property]="propertyView"> </app-property-card>
+    </div>
+  </div>
 </div>
 </div>

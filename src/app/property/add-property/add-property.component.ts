@@ -12,19 +12,35 @@ export class AddPropertyComponent implements OnInit {
  @ViewChild('Form') addPropertyForm! : NgForm;
  @ViewChild('formTabs') formTabs?: TabsetComponent;
 
+ propertyTypes: Array<string> = ['Housing', 'Apartment', 'Duplex'];
+ furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
+ sideTypes: Array<string> = ['East', 'West', 'South', 'North']
+
+ propertyView: any= {
+
+ ID: null,
+ Name: '',
+ Price: null,
+ SellRent: null,
+ Type: null
+
+};
  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
+
   onBack()
   {
     this.router.navigate(['/']);
   }
+
   selectTab(tabId: number) {
     if (this.formTabs?.tabs[tabId]) {
       this.formTabs.tabs[tabId].active = true;
     }
   }
+
   OnSubmit()
   {
    console.log(this.addPropertyForm);
