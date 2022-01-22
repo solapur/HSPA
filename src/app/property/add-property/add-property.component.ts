@@ -26,7 +26,7 @@ export class AddPropertyComponent implements OnInit {
    PType : '',
    FType : '',
    BHK : 0,
-   BuildArea : 0,
+   BuiltArea : 0,
    City : '',
    RTM : 0,
    Description: ''

@@ -7,7 +7,7 @@ PType: string,
 FType: string,
 Price: number,
 BHK: number,
-BuildArea: number,
+BuiltArea: number,
 City: string,
 RTM: number,
 Image?: string
