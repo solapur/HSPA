@@ -7,8 +7,8 @@
   </div>
   <div class="card-body">
 <form (ngSubmit)="OnSubmit()" #Form= "ngForm">
-  <div>
-    <tabset #formTabs>
+  <div class="tab-panel">
+    <tabset class="member-tabset" #formTabs>
 
       <tab heading="Basic Information">
         <div class="form-group col-12">
@@ -24,14 +24,14 @@
               <label
               *ngFor="let bhk of [1,2,3,4]"
               class="btn btn-outline-primary"
-              btnRadio = bhk role = "button" name="BHK"> {{bhk}} </label>
+              btnRadio = {{bhk}} role = "button" name="BHK"> {{bhk}} </label>
 
 
           </div>
        </div>
        <div class="form-group col-12">
         <p>Property Type  </p>
-        <div class="btn-group" btnRadioGroup name="propertyType" [(ngModel)]="propertyView.Type">
+        <div class="btn-group" btnRadioGroup name="propertyType" [(ngModel)]="propertyView.PType">
             <label
             *ngFor="let property of propertyTypes"
             class="btn btn-outline-primary"
@@ -44,7 +44,7 @@
           <label
           *ngFor="let furnish of furnishTypes"
           class="btn btn-outline-primary"
-          btnRadio = furnish role = "button" name="furnish"> {{furnish}} </label>
+          btnRadio = {{furnish}} role = "button" name="furnish"> {{furnish}} </label>
       </div>
    </div>
    <div class="form-group col-12">
@@ -129,7 +129,7 @@
                 <label
                 *ngFor="let side of sideTypes"
                 class="btn btn-outline-primary"
-                btnRadio = side role = "radio" name="side"> {{side}} </label>
+                btnRadio = {{side}} role = "radio" name="side"> {{side}} </label>
             </div>
 
         </div>
@@ -201,7 +201,9 @@
      <h3> Your property review </h3>
     </div>
     <div class="card-body">
-      <app-property-card [property]="propertyView"> </app-property-card>
+      <div class="shadow-lg p-3">
+      <app-property-card [property]="propertyView" [hideIcons] = false> </app-property-card>
+      </div>
     </div>
   </div>
 </div>

@@ -7,7 +7,7 @@
         <img class="card-img-top" src='assets/images/hoome.jpg'/>
   </div>
 
-<ul class="list-inline text-center member-icons animate">
+<ul *ngIf="hideIcons"  class="list-inline text-center member-icons animate">
   <li class="list-inline-item">
     <button class="btn btn-primary" routerLink="/property-detail/{{property.Id}}">  <i class="far fa-edit"></i></button>
   </li>
@@ -18,11 +18,11 @@
 
 </div>
 <div class ="card-body">
-<h1> {{property.ID }} </h1>
-<h1> {{property.Type }} </h1>
+<!-- <h1> {{property.Id }} </h1> -->
+<h1> {{property.PType }} </h1>
 <h1> {{property.Name }} </h1>
 <h1> {{property.Price}} </h1>
-<h1> {{property.SellRent}} </h1>
+<!-- <h1> {{property.SellRent}} </h1> -->
 
 
 </div>

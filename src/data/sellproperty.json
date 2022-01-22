@@ -2,7 +2,7 @@
 
   {
     "Id": 2,
-    "Type": "House",
+    "PType": "House",
     "SellRent": 1,
     "Name": "Divya House",
     "Price": 110000,
@@ -10,7 +10,7 @@
   },
   {
     "Id": 3,
-    "Type": "House",
+    "PType": "House",
     "SellRent": 1,
     "Name": "Aarvi House",
     "Price": 120000,
@@ -18,7 +18,7 @@
   },
   {
     "Id": 5,
-    "Type": "House",
+    "PType": "House",
     "SellRent": 1,
     "Name": "Biral House",
     "Price": 130000,
@@ -26,7 +26,7 @@
   },
   {
     "Id": 7,
-    "Type": "House",
+    "PType": "House",
     "SellRent": 1,
     "Name": "Ragii House",
     "Price": 150000,
